@@ -1,19 +1,19 @@
 ## AI-Led Development Log
 
-تم استخدام AI (مثل ChatGPT) مرتين خلال تطوير تطبيق **BurgerApp**، لتوليد كود ومساعدة في التصميم.
+During the development of **BurgerApp**, an AI assistant (accessed via a proxy interface to ChatGPT) was used twice to assist in generating code and shaping the app structure.
 
 ---
 
-### 🔹 Occasion 1: ViewModel لإدارة الكمية (Quantity)
+### 🔹 Occasion 1: ViewModel for Quantity Management
 
 - **Prompt:**  
   "Create a Dart ViewModel class for ProductCard in BurgerApp with `quantity`, `increment`, `decrement`, and notifyListeners."
 
 - **AI Response:**  
-  اقترح AI عمل كلاس باستخدام `ChangeNotifier` يحتوي على عدد الطلبات ودوال للتحكم فيه، بدلًا من استخدام `setState` في كل كارت.
+  The AI (via Proxy) suggested creating a class using `ChangeNotifier` to manage the quantity, instead of calling `setState()` within each card widget.
 
 - **Implementation:**  
-  تم استخدام `ProductQuantityViewModel` وربطها بـ `ProductCard` لتحديث الـ UI تلقائيًا عند تغيير الكمية، وتم ربط القيمة الإجمالية داخل `AppConstants.totalValue`.
+  A `ProductQuantityViewModel` was implemented and integrated into the `ProductCard` widget. The ViewModel updates the UI automatically on quantity change and adjusts `AppConstants.totalValue` accordingly.
 
 ---
 
@@ -23,14 +23,14 @@
   "Generate a Dart model class for a Product stored in SQLite with fields: name (String), price (double), image (String). Include fromMap and toMap methods."
 
 - **AI Response:**  
-  أنشأ كلاس `Product` يحتوي على `fromMap()` و `toMap()` لتحويل البيانات ما بين SQLite و Dart object.
+  The AI returned a `Product` model class with serialization methods (`fromMap()` and `toMap()`) to convert between SQLite rows and Dart objects.
 
 - **Implementation:**  
-  استخدمت هذا الموديل في `DBHelper.getAllBurgers()` لتحويل صفوف قاعدة البيانات إلى كائنات `Product` داخل التطبيق.
+  This model was applied inside `DBHelper.getAllBurgers()` to map data retrieved from SQLite into `Product` objects used across the app.
 
 ---
 
 ## 📝 Commit Messages (Pushes)
 
 1. `feat: use AI-generated ChangeNotifier ViewModel for quantity state in ProductCard`
-2. `feat: added SQLite data model class for Product using AI-generated structure`
+2. `feat: added SQLite data model class for Product using AI-generated structure via Proxy AI`
