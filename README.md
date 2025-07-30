@@ -1,16 +1,36 @@
-# task
+## AI-Led Development Log
 
-A new Flutter project.
+During the development of **BurgerApp**, an AI assistant (accessed via a proxy interface to ChatGPT) was used twice to assist in generating code and shaping the app structure.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+### 🔹 Occasion 1: ViewModel for Quantity Management
 
-A few resources to get you started if this is your first Flutter project:
+- **Prompt:**  
+  "Create a Dart ViewModel class for ProductCard in BurgerApp with `quantity`, `increment`, `decrement`, and notifyListeners."
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **AI Response:**  
+  The AI (via Proxy) suggested creating a class using `ChangeNotifier` to manage the quantity, instead of calling `setState()` within each card widget.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Implementation:**  
+  A `ProductQuantityViewModel` was implemented and integrated into the `ProductCard` widget. The ViewModel updates the UI automatically on quantity change and adjusts `AppConstants.totalValue` accordingly.
+
+---
+
+### 🔹 Occasion 2: SQLite Product Data Model
+
+- **Prompt:**  
+  "Generate a Dart model class for a Product stored in SQLite with fields: name (String), price (double), image (String). Include fromMap and toMap methods."
+
+- **AI Response:**  
+  The AI returned a `Product` model class with serialization methods (`fromMap()` and `toMap()`) to convert between SQLite rows and Dart objects.
+
+- **Implementation:**  
+  This model was applied inside `DBHelper.getAllBurgers()` to map data retrieved from SQLite into `Product` objects used across the app.
+
+---
+
+## 📝 Commit Messages (Pushes)
+
+1. `feat: use AI-generated ChangeNotifier ViewModel for quantity state in ProductCard`
+2. `feat: added SQLite data model class for Product using AI-generated structure via Proxy AI`
