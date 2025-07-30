@@ -1,16 +1,36 @@
-# task
+## AI-Led Development Log
 
-A new Flutter project.
+تم استخدام AI (مثل ChatGPT) مرتين خلال تطوير تطبيق **BurgerApp**، لتوليد كود ومساعدة في التصميم.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+### 🔹 Occasion 1: ViewModel لإدارة الكمية (Quantity)
 
-A few resources to get you started if this is your first Flutter project:
+- **Prompt:**  
+  "Create a Dart ViewModel class for ProductCard in BurgerApp with `quantity`, `increment`, `decrement`, and notifyListeners."
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **AI Response:**  
+  اقترح AI عمل كلاس باستخدام `ChangeNotifier` يحتوي على عدد الطلبات ودوال للتحكم فيه، بدلًا من استخدام `setState` في كل كارت.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Implementation:**  
+  تم استخدام `ProductQuantityViewModel` وربطها بـ `ProductCard` لتحديث الـ UI تلقائيًا عند تغيير الكمية، وتم ربط القيمة الإجمالية داخل `AppConstants.totalValue`.
+
+---
+
+### 🔹 Occasion 2: SQLite Product Data Model
+
+- **Prompt:**  
+  "Generate a Dart model class for a Product stored in SQLite with fields: name (String), price (double), image (String). Include fromMap and toMap methods."
+
+- **AI Response:**  
+  أنشأ كلاس `Product` يحتوي على `fromMap()` و `toMap()` لتحويل البيانات ما بين SQLite و Dart object.
+
+- **Implementation:**  
+  استخدمت هذا الموديل في `DBHelper.getAllBurgers()` لتحويل صفوف قاعدة البيانات إلى كائنات `Product` داخل التطبيق.
+
+---
+
+## 📝 Commit Messages (Pushes)
+
+1. `feat: use AI-generated ChangeNotifier ViewModel for quantity state in ProductCard`
+2. `feat: added SQLite data model class for Product using AI-generated structure`
