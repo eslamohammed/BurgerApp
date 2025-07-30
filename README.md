@@ -34,3 +34,7 @@ During the development of **BurgerApp**, an AI assistant (accessed via a proxy i
 
 1. `feat: use AI-generated ChangeNotifier ViewModel for quantity state in ProductCard`
 2. `feat: added SQLite data model class for Product using AI-generated structure via Proxy AI`
+---------------------------------
+## 📽️ App Demo
+
+![BurgerApp Demo](assets/demo.gif)
